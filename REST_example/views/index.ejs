@@ -1,0 +1,37 @@
+<%include ./partial/header.ejs%>
+<%include ./public/app.css%>
+<div class="ui main text container">
+	<div class="ui huge header">Restful Blog</div>
+	<div class="ui top attached segment">
+		<div class="ui divided items">
+			<%blogs.forEach(function(blog){%>
+				<div class="item">
+					<div class="image"><img src="<%= blog.image %>"></div>
+				</div>
+				
+				<div class="content">
+					<h3><a class="header" href="/blog/<%=blog._id%>"><%= blog.title %></a></h3>
+					<div class="meta">
+						<span><%= blog.created.toDateString()%></span>
+					</div>
+					<div class="description">
+						<%= blog.body.substring(0, 100)%>
+					</div>
+					<div class="extra">
+						<a class="ui flooded basic violet button" href="/blog/<%=blog._id%>">
+								Read More
+							<i class="right chevron icon"></i>
+						</a>
+					</div>
+				</div>
+				
+				
+					
+			<%})%>
+		</div>
+	</div>
+</div>
+
+
+
+<%include ./partial/footer.ejs%>
